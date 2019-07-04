@@ -44,7 +44,8 @@
             android:layout_above="@+id/footerLinearLayout"
             android:layout_centerHorizontal="true"
             android:drawableTop="@drawable/ic_save_todo"
-            android:text="@string/saveCoffeeBtn" />
+            android:text="@string/saveCoffeeBtn"
+            android:onClick="onClick"/>
 
         <RatingBar
             android:id="@+id/coffeeRatingBar"
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:progressTint="@color/bannerBGColor"
             android:numStars="5"
             android:rating="2"
             android:stepSize="1" />

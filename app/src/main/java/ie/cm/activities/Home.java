@@ -8,10 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import ie.cm.R;
 
 public class Home extends Base {
+    TextView recentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +36,15 @@ public class Home extends Base {
                         }).show();
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
+
+
+        recentList = (TextView) findViewById(R.id.recentlyAddedListEmpty);
+        if(!coffeeList.isEmpty())
+            recentList.setText(coffeeList.toString());
+        else
+            recentList.setText(getString(R.string.recentlyViewedListEmptyMessage));
+
     }
 
     @Override
@@ -56,5 +60,9 @@ public class Home extends Base {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void add(View v){
+        goToActivity(Home.this, Add.class, null);
     }
 }
